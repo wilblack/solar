@@ -95,7 +95,6 @@ export class BodyService {
         const re = /^(\(\d*\)|\d*)\s*/
         const str = (rawEnglishName.name ?? rawEnglishName.id)
         const cleanedName = str.replace(re, "")
-        console.log(`Converted ${str} to ${cleanedName}`)
         return cleanedName
     }
     

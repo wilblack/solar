@@ -40,7 +40,7 @@ export class ApiService {
     fetchPlanets = async (excludedAttributes: string[]): Promise<Body[]> =>{
         const url = `${this.baseUrl}/bodies`
         const queryParams = {
-            filter: "isPlanet,eq,true",
+            filter: "isPlanet,eq,false",
             exclude: excludedAttributes.join(",")
         }
         return this.getOrCached(LOCALSTORAGE_KEY.API_PLANETS, url, queryParams)

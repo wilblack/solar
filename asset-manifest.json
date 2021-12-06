@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/solar/static/css/main.a617e044.chunk.css",
-    "main.js": "/solar/static/js/main.0bb553fe.chunk.js",
-    "main.js.map": "/solar/static/js/main.0bb553fe.chunk.js.map",
+    "main.js": "/solar/static/js/main.cc3cdcac.chunk.js",
+    "main.js.map": "/solar/static/js/main.cc3cdcac.chunk.js.map",
     "runtime-main.js": "/solar/static/js/runtime-main.872c236f.js",
     "runtime-main.js.map": "/solar/static/js/runtime-main.872c236f.js.map",
     "static/js/2.e040359e.chunk.js": "/solar/static/js/2.e040359e.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.872c236f.js",
     "static/js/2.e040359e.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.0bb553fe.chunk.js"
+    "static/js/main.cc3cdcac.chunk.js"
   ]
 }

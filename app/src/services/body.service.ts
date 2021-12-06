@@ -1,5 +1,5 @@
-import api from "../api-service"
-import { Body, CleanEnglishLexicon, LOCALSTORAGE_KEY, PlanetsDataframe } from "../types"
+import { Body, CleanEnglishLexicon, LOCALSTORAGE_KEY, PlanetFormData, PlanetsDataframe } from "../types"
+import api from "./api-service"
 import { attrMap } from "./attribute-map"
 
 
@@ -23,14 +23,26 @@ export class BodyService {
       'aroundPlanet', 'discoveredBy', 'discoveryDate', 'alternativeName', 
       'axialTilt', 'mass', 'vol', 'rel']
     
+    
+    
+    findClosestObject = async (planet: PlanetFormData): Promise<Body> => {
+        const df = await this.getDataframe()
 
+        // TODO Just returning some random object for now
+        const index = this.getRandomInt(0, df.length - 1)
+        return new Promise((resolve, reject) => resolve(df[index]))
+    }
+
+    comuteSimilarity = () => {
+        
+    }
     getDataframe = async (): Promise<PlanetsDataframe> => {
         let df: Promise<PlanetsDataframe>
         const str = localStorage.getItem(LOCALSTORAGE_KEY.CLEANED_DF)
         if (!!str) {
             // TODO Add error handling if JSON fails parse
-            const data = JSON.stringify(str)
-            df = new Promise((resolve, reject) => resolve(df))
+            const data = JSON.parse(str)
+            df = new Promise((resolve, reject) => resolve(data))
         } else {
             df = this.buildDataframe()
         }
@@ -41,7 +53,7 @@ export class BodyService {
         const gameAttrs = attrMap.map(v => v.attribute)
         gameAttrs.concat(["id", "rel"])
 
-        // Create a list of attrs to exlude by filter out game attrs from all attrs
+        // Create a list of attrs to exclude by filter out game attrs from all attrs
         const excludedAttrs = this.ALL_ATTRIBUTES.filter(attr => gameAttrs.indexOf(attr) < 0)
 
         return excludedAttrs
@@ -87,6 +99,13 @@ export class BodyService {
         return cleanedName
     }
     
+    getRandomInt = (min: number, max: number): number => {
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        
+        //The maximum is exclusive and the minimum is inclusive
+        return Math.floor(Math.random() * (max - min) + min) 
+    }
 }
 
 const bodyService = new BodyService()

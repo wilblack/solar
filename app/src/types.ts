@@ -59,3 +59,19 @@ export interface CleanEnglishLexicon {
 }
 
 export type PlanetsDataframe = Body[]
+
+
+export interface PlanetFormData {
+    englishName: string,
+    moons: string[],
+    perihelion: number,
+    aphelion: number,
+    mass: number,
+    density: number,
+    gravity: number,
+    escape: number,
+    meanRadius: number,
+    discoveredBy: string[],
+    discoveryDate: Date
+    
+}
